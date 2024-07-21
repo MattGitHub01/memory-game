@@ -40,14 +40,24 @@ header {
 }
 
 .game-board {
-  display: flex;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 1rem;
   justify-content: center;
   align-items: center;
 
 }
 
 .card {
-  width: 20rem;
-  height: 20rem;
-  border-radius: 2px solid lightgray;
+  width: 19rem;
+  height: 19rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 15px;
 }

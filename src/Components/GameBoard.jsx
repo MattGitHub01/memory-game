@@ -4,6 +4,17 @@ function GameBoard() {
     return (
         <div className="game-board">
             <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
         </div>
     )
 }
