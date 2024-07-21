@@ -5,8 +5,9 @@ function Card() {
     const [data, setData] = useState();
 
     useEffect(() => {
+        
         const fetchFromAPI = async () => {
-            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/1`);
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
             const json = await response.json();
             setData(json);
             if (!response.ok) {

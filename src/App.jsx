@@ -8,15 +8,18 @@ function App() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
 
-  const handleScore = (e) => {
-    e.target.value;
+  const handleScore = () => {
+    setScore(score);
+    if (score >= highScore) {
+      setHighScore(score);
+    }
   }
 
   return (
     <>
       <div className='page-wrapper'>
-        <Header handleScore={handleScore} />
-        <GameBoard />
+        <Header score={score} highScore={highScore} />
+        <GameBoard handleScore={handleScore} />
       </div>
     </>
   )

@@ -1,5 +1,4 @@
-function Header() {
-
+function Header({ score, highScore }) {
     
     return (
         <header>
@@ -8,8 +7,10 @@ function Header() {
                 <span>Click each card, but don&apos;t click the same one twice!</span>
             </div>
             <div className="score">
-                <span>Score: </span>
-                <span>High Score: </span>
+                <span className="score-reg">Score: </span>
+                <span className="score-reg">{score}</span>
+                <span className="score-high">High Score: </span>
+                <span className="score-high">{highScore}</span>
             </div>
         </header>
     )

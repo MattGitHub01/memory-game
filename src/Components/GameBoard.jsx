@@ -1,6 +1,8 @@
 import Card from './Card.jsx'
 
-function GameBoard() {
+function GameBoard({ handleScore }) {
+    // Update handleScore and return to App --> Header (maybe from Card)
+
     return (
         <div className="game-board">
             <Card />

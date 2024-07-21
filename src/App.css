@@ -35,7 +35,11 @@ header {
   grid-column: 2 / 3;
 }
 
-.score span {
+.score-reg {
+  margin: .5rem;
+}
+
+.score-high {
   margin: .5rem;
 }
 
