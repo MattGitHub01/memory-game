@@ -7,10 +7,14 @@ function Header({ score, highScore }) {
                 <span>Click each card, but don&apos;t click the same one twice!</span>
             </div>
             <div className="score">
-                <span className="score-reg">Score: </span>
-                <span className="score-reg">{score}</span>
-                <span className="score-high">High Score: </span>
-                <span className="score-high">{highScore}</span>
+                <div className="score-reg">
+                    <span>Score: </span>
+                    <span>{score}</span>
+                </div>
+                <div className="score-high">
+                    <span>High Score: </span>
+                    <span>{highScore}</span>
+                </div>
             </div>
         </header>
     )
