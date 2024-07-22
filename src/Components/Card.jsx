@@ -16,20 +16,23 @@ function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighS
     });
 
     function scoreHandler(e) {
-        console.log(cardList);
-        let chosenCard = e.target.id;
-        console.log(chosenCard);
+        let chosenCard = e.target.alt;
+        console.log(cardList.includes(chosenCard));
         if (cardList.includes(chosenCard)) {
-            score > highScore ?? setHighScore(score);
+            if (score > highScore || (score === 1 && highScore === 0)) {
+                setHighScore(score);
+            }
+            console.table(cardList);
             setScore(0);
             setCardList([]);
-            alert('Repeat Card:')
-            alert(cardList);
+            console.table(cardList);
         } else {
-            setCardList([...cardList, e.target.id]);
             setScore(score + 1);
-            alert('Not Repeat Card')
-            alert(cardList);
+            if (score > highScore) {
+                setHighScore(score);
+            }
+            setCardList([...cardList, chosenCard]);
+            console.table(cardList);
         }
     }
 
@@ -37,7 +40,7 @@ function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighS
         <div className="card" onClick={scoreHandler}>
             {data ? (
                 <>
-                <img src={data.sprites.front_default} alt={data.name} id={data.name} />
+                <img src={data.sprites.front_default} alt={data.name} />
                 <p>{data.name}</p>
                 </>
             ) : (
