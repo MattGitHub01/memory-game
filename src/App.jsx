@@ -7,11 +7,19 @@ function App() {
   // Shared state needed to manage game score (GameBoard & Header)
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
+  const [clickedCards, setClickedCards] = useState([]);
 
-  const handleScore = () => {
-    setScore(score);
-    if (score >= highScore) {
-      setHighScore(score);
+
+  function scoreHandler(e) {
+    let chosenCard = e.target.src;
+    if (clickedCards.includes(chosenCard)) {
+        alert(`You Lose: Your Score Was ${score}`);
+        score > highScore ?? setHighScore(score);
+        setScore(0);
+        setClickedCards([])
+    } else {
+      setClickedCards([...clickedCards, e.target.src]);
+      setScore(score + 1);
     }
   }
 
@@ -19,7 +27,7 @@ function App() {
     <>
       <div className='page-wrapper'>
         <Header score={score} highScore={highScore} />
-        <GameBoard handleScore={handleScore} />
+        <GameBoard scoreHandler={scoreHandler} />
       </div>
     </>
   )

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 function Card({ id }) {
     const [data, setData] = useState();
+    const [click, setClick] = useState();
     
     useEffect(() => {
         const fetchFromAPI = async () => {
