@@ -27,8 +27,8 @@ function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighS
             setCardList([]);
         } else {
             setScore(score + 1);
-            if (score > highScore) {
-                setHighScore(score);
+            if (score >= highScore) {
+                setHighScore(score + 1);
             }
             setCardList([...cardList, cardId]);
         }
