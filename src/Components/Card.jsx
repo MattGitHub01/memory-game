@@ -8,8 +8,10 @@ function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighS
         const fetchFromAPI = async () => {
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
             const json = await response.json();
-            setData(json);
-            if (!response.ok) {
+            if (response.ok) {
+                setCardId({id});
+                setData(json);
+            } else {
                 throw new Error('ERROR: .JSON file was not received from the API');
             }
         }   
@@ -17,10 +19,8 @@ function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighS
     });
 
     function scoreHandler() {
-        
-        console.log(cardId);
-        if (cardList.includes(cardId)) {
-            if (score > highScore || (score === 1 && highScore === 0)) {
+        if (cardList.some((c) => c.id === cardId.id)) {
+            if (score >= highScore) {
                 setHighScore(score);
             }
             setScore(0);
@@ -28,11 +28,12 @@ function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighS
         } else {
             setScore(score + 1);
             if (score > highScore) {
-                setHighScore(score + 1);
+                setHighScore(score);
             }
             setCardList([...cardList, cardId]);
         }
     }
+        
 
     return (
         <div className="card" onClick={scoreHandler}>

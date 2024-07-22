@@ -5,7 +5,7 @@ import { useState } from 'react'
 function GameBoard() {
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
-     const [cardList, setCardList] = useState([]);
+    const [cardList, setCardList] = useState([]);
 
     // function scoreHandler(e) {
     //     console.log(cardList);
