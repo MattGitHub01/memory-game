@@ -22,7 +22,7 @@ function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighS
 
     function scoreHandler() {
         console.log(winCount);
-        console.table(cardList)
+        console.table(cardList);
         if (cardList.some((c) => c.id === cardId.id)) {
             alert('Try Again!')
             if (score >= highScore) {
@@ -38,7 +38,7 @@ function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighS
             setCardList([...cardList, cardId]);
         }
         if (winCount === 12) {
-            alert('You Win!')
+            alert('You Win!');
             if (score >= highScore) {
                 setHighScore(score + 1);
             }

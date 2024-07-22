@@ -7,22 +7,6 @@ function GameBoard() {
     const [highScore, setHighScore] = useState(0);
     const [cardList, setCardList] = useState([]);
 
-    // function scoreHandler(e) {
-    //     console.log(cardList);
-    //     let chosenCard = e.target.id;
-    //     console.log(chosenCard);
-    //     if (cardList.includes(chosenCard)) {
-    //         score > highScore ?? setHighScore(score);
-    //         setScore(0);
-    //         setCardList([]);
-    //         alert(cardList);
-    //     } else {setCardList
-    //         setCardList([...cardList, e.target.id]);
-    //         setScore(score + 1);
-    //         alert(cardList);
-    //     }
-    // }
-
 let cards = [
     14,
     121,
