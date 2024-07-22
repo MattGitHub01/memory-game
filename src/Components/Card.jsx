@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Card({ id }) {
+function Card({ card, id, scoreHandler}) {
     const [data, setData] = useState();
     const [click, setClick] = useState();
     
@@ -17,7 +17,7 @@ function Card({ id }) {
     });
                 
     return (
-        <div className="card">
+        <div className="card" onClick={scoreHandler}>
             {data ? (
                 <>
                     <img src={data.sprites.back_default} alt={data.name} />
