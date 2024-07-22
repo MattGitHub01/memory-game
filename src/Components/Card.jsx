@@ -4,6 +4,8 @@ function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighS
     const [data, setData] = useState();
     const [cardId, setCardId] = useState({id});
 
+    let winCount = score + 1;
+
     useEffect(() => {
         const fetchFromAPI = async () => {
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -19,7 +21,10 @@ function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighS
     });
 
     function scoreHandler() {
+        console.log(winCount);
+        console.table(cardList)
         if (cardList.some((c) => c.id === cardId.id)) {
+            alert('Try Again!')
             if (score >= highScore) {
                 setHighScore(score);
             }
@@ -31,6 +36,14 @@ function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighS
                 setHighScore(score + 1);
             }
             setCardList([...cardList, cardId]);
+        }
+        if (winCount === 12) {
+            alert('You Win!')
+            if (score >= highScore) {
+                setHighScore(score + 1);
+            }
+            setScore(0);
+            setCardList([]);
         }
     }
         
