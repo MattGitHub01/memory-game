@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighScore }) {
     const [data, setData] = useState();
+    const [cardId, setCardId] = useState({id});
 
     useEffect(() => {
         const fetchFromAPI = async () => {
@@ -15,24 +16,21 @@ function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighS
         fetchFromAPI()
     });
 
-    function scoreHandler(e) {
-        let chosenCard = e.target.alt;
-        console.log(cardList.includes(chosenCard));
-        if (cardList.includes(chosenCard)) {
+    function scoreHandler() {
+        
+        console.log(cardId);
+        if (cardList.includes(cardId)) {
             if (score > highScore || (score === 1 && highScore === 0)) {
                 setHighScore(score);
             }
-            console.table(cardList);
             setScore(0);
             setCardList([]);
-            console.table(cardList);
         } else {
             setScore(score + 1);
             if (score > highScore) {
-                setHighScore(score);
+                setHighScore(score + 1);
             }
-            setCardList([...cardList, chosenCard]);
-            console.table(cardList);
+            setCardList([...cardList, cardId]);
         }
     }
 
@@ -40,8 +38,8 @@ function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighS
         <div className="card" onClick={scoreHandler}>
             {data ? (
                 <>
-                <img src={data.sprites.front_default} alt={data.name} />
-                <p>{data.name}</p>
+                    <img src={data.sprites.front_default} alt={data.name} />
+                    <p>{data.name}</p>
                 </>
             ) : (
                 <h2>Loading...</h2>
