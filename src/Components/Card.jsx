@@ -16,7 +16,7 @@ function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighS
             } else {
                 throw new Error('ERROR: .JSON file was not received from the API');
             }
-        } 
+        }
         fetchFromAPI()
     }, [id]);
 
