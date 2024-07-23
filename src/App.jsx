@@ -4,11 +4,9 @@ import './App.css'
 function App() {
 
   return (
-    <>
       <div className='page-wrapper'>
         <GameBoard />
       </div>
-    </>
   )
 }
 

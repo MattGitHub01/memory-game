@@ -16,13 +16,11 @@ function Card ({ id, cardList, setCardList, score, setScore, highScore, setHighS
             } else {
                 throw new Error('ERROR: .JSON file was not received from the API');
             }
-        }   
+        } 
         fetchFromAPI()
-    });
+    }, [id]);
 
     function scoreHandler() {
-        console.log(winCount);
-        console.table(cardList);
         if (cardList.some((c) => c.id === cardId.id)) {
             alert('Try Again!')
             if (score >= highScore) {
